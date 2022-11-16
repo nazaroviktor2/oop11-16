@@ -79,7 +79,7 @@ class Ball(Circle):
         return self.get_len_circle() / Circle.DEGREE
 
     def move(self, speed: float, time: float, acceleration=0):
-        """Counts how many degrees the ball has turned while moving with uniform acceleration.
+        """Counts and rounds to 2 decimal places how many degrees the ball has turned.
 
         Args:
             speed: float - initial speed in meters per second.
@@ -90,4 +90,4 @@ class Ball(Circle):
             float - how many degrees did the ball spin.
         """
         path = speed * time + (acceleration * time * time) / 2
-        return (path / self.degree_to_meter()) % Circle.DEGREE
+        return round(((path / self.degree_to_meter()) % Circle.DEGREE), 2)
